@@ -45,9 +45,9 @@ export default function Form({ onSubmit }) {
             onChange={handleInputChange}
           />
         </Label>
+
         <Label>
-     
-          Number
+     Number
           <Input
             type="tel"
             name="number"
