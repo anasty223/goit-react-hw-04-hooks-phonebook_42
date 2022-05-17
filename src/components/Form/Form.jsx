@@ -1,40 +1,37 @@
-import PropTypes from 'prop-types'
-import {Input,Label,ButtonAdd}from './Form.styles'
-import {useState } from "react";
+import PropTypes from "prop-types";
+import { Input, Label, ButtonAdd } from "./Form.styles";
+import { useState } from "react";
 
+export default function Form({ onSubmit }) {
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
 
-export default function Form({onSubmit}) {
-  const [name, setName] = useState("")
-  const [number, setNumber] = useState("")
-
- const handleInputChange =  event => {
- const { name, value } = event.target;
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
 
     switch (name) {
-      case 'name':
+      case "name":
         setName(value);
         break;
 
-      case 'number':
+      case "number":
         setNumber(value);
         break;
 
       default:
         return;
     }
-  
   };
-  
-  const onSubmitForm = e => {
+
+  const onSubmitForm = (e) => {
     e.preventDefault();
-   onSubmit({name,number});
-    setName('')
-    setNumber('')
+    onSubmit({ name, number });
+    setName("");
+    setNumber("");
   };
 
-
-
-      return ( <>
+  return (
+    <>
       <form onSubmit={onSubmitForm}>
         <Label>
           Name
@@ -47,32 +44,37 @@ export default function Form({onSubmit}) {
             value={name}
             onChange={handleInputChange}
           />
-              </Label>
-            <Label> Number
-                    <Input
-                        type="tel"
-                        name="number"
-                        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        </Label>
+        <Label>
+     
+          Number
+          <Input
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             value={number}
-               onChange={handleInputChange}
-                    />
-                    <ButtonAdd type="submit">Add contact</ButtonAdd>
-                </Label>
+            onChange={handleInputChange}
+          />
+          <ButtonAdd type="submit">Add contact</ButtonAdd>
+        </Label>
       </form>
-    </>);
+    </>
+  );
 }
+Form.propsTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 // class Form extends Component {
 // static defaultProps = {
 //    onSubmit:PropTypes.func.isRequired,
 //   }
 
-
 //   state = {
 //     name: '',
 //     number:'',
-//   } 
+//   }
 
 //   handleInputChange =  e => {
 //     const { name, value } = e.currentTarget;
@@ -88,11 +90,11 @@ export default function Form({onSubmit}) {
 //     this.reset();
 
 //   }
-  
+
 //   reset = () => {
 //     this.setState({ name: '', number: '' });
 //   };
-//   render() { 
+//   render() {
 //     return ( <>
 //       <form onSubmit={this.onSubmitForm}>
 //         <Label>
@@ -123,7 +125,7 @@ export default function Form({onSubmit}) {
 //     </>);
 //   }
 // }
- 
+
 // export default Form;
 
 // // const Form = ({ onSubmit }) => {

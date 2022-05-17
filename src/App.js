@@ -45,22 +45,6 @@ export default function App() {
     }
   };
 
-  // const formSubmitHandler = ({ name, number }) => {
-  //   const ReturnName = contacts.find((contact) => contact.name === name);
-  //   if (ReturnName) {
-  //     alert("This name is already in the phone book ");
-  //   } else {
-  //     const contact = {
-  //       id: nanoid(),
-  //       name,
-  //       number,
-  //     };
-  //     console.log(contact);
-  //     this.setState(({ contacts }) => ({
-  //       contacts: [contact, ...contacts],
-  //     }));
-  //   }
-  // };
   return (
     <Div>
       <h1>Phonebook</h1>
